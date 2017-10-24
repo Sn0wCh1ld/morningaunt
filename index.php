@@ -34,7 +34,7 @@
         
                 // Check connection
                 if ($connection->connect_error) {
-                    die("Connection failed: " . $connection->connect_error);
+                    die("Échec de connection: " . $connection->connect_error);
                 }
         
                 // Create database
@@ -49,11 +49,11 @@
         
                 if ($connection->query($createDB) === TRUE)
                 {
-                    echo "Database created successfully, or already exists" . "<br>";
+                    echo "Succès de base de données" . "<br>";
                 } 
                 else 
                 {
-                    echo "Error creating database: " . $connection->error;
+                    echo "Erreur en création de base de données: " . $connection->error;
                 }
         
                 // Create table
