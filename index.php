@@ -72,19 +72,28 @@
                     $un = $_POST['nom'];
                     $pw = $_POST['mdp'];
                     
-                    $hashedpw = hash('sha256', $pw);
-                    
-                    $sql = "select * from 'userTable' where name = $un";
-                    
-                    if($connection->query($sql) === TRUE)
+                    if (empty($pw))
                     {
-                         //username exists
-                    } 
-                    else 
-                    {
-                        //username does not exist
-                        nouvelUtilisateur($connection, $un, $hashedpw);
+                        echo "<br>" . "Veuillez inscrire un nom d'utilisateur";
                     }
+                    else
+                    {
+                        $hashedpw = hash('sha256', $pw);
+                    
+                        $sql = "select * from 'userTable' where name = $un";
+                    
+                        if($connection->query($sql) === TRUE)
+                        {
+                            //username exists
+                        } 
+                        else 
+                        {
+                            //username does not exist
+                            nouvelUtilisateur($connection, $un, $hashedpw);
+                        }
+                    }
+                    
+                    
                 }
                 
                 function nouvelUtilisateur($connection, $un, $hashedpw)
