@@ -5,6 +5,31 @@
         <title></title>
     </head>
     <body>
+        <style>
+        body {
+  height: 100%;
+}
+
+body {
+  -webkit-animation: background 5s cubic-bezier(1,0,0,1) infinite;
+  animation: background 5s cubic-bezier(1,0,0,1) infinite;  
+}
+
+
+@-webkit-keyframes background {
+  0% { background-color: #f99; }
+  33% { background-color: #9f9; }  
+  67% { background-color: #99f; }
+  100% { background-color: #f99; }
+}
+
+@keyframes background {
+  0% { background-color: #f99; }
+  33% { background-color: #9f9; }  
+  67% { background-color: #99f; }
+  100% { background-color: #f99; }
+}
+</style>
         <br>
         <br>
         <div class="contenant" style="text-align:center">
@@ -27,9 +52,6 @@
                 $nomadmin = "root";
                 $mdpadmin = "";
                 $nombasededonnées = "userDB";
-        
-                // Créer une base de données
-                $createDB = "CREATE DATABASE IF NOT EXISTS userDB";
                 
                 // Se connecter au serveur
                 $connection = new mysqli($nomserveur, $nomadmin, $mdpadmin, $nombasededonnées);
@@ -37,7 +59,19 @@
                 if ($connection->connect_error) {
                     die("Échec de connection: " . $connection->connect_error);
                 }
-        
+                
+                // Créer une base de données
+                $créerbdd = "CREATE DATABASE IF NOT EXISTS userDB";
+                
+                if ($connection->query($créerbdd) === TRUE)
+                {
+                    echo "Une base de donnée fut créée." . "<br>";
+                } 
+                else 
+                {
+                    echo "Erreur de création de base de données: " . $connection->error;
+                }
+                
                 // Créer une table de données
                 $createTable = "CREATE TABLE IF NOT EXISTS userTable"
                              . "("
@@ -46,15 +80,7 @@
                              . "password VARCHAR(1024) NOT NULL,"
                              . "reg_date TIMESTAMP"
                              . ")";
-        
-                if ($connection->query($createDB) === TRUE)
-                {
-                    echo "Succès de base de données" . "<br>";
-                } 
-                else 
-                {
-                    echo "Erreur en création de base de données: " . $connection->error;
-                }
+                
         
                 // Create table
         
