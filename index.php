@@ -7,6 +7,7 @@
     <body>
         <style>
 <<<<<<< HEAD
+<<<<<<< HEAD
             body {
                 height: 100%;
                 animation: background 5s cubic-bezier(1,0,0,1) infinite;  
@@ -20,6 +21,18 @@
         </style>
         <br><br>
 =======
+=======
+            div {
+    height: 200px;
+    width: 400px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+>>>>>>> 60bff800036c018eec312b2ff78acd86480e73d3
         body {
   height: 100%;
 }
