@@ -52,9 +52,6 @@ body {
                 $nomadmin = "root";
                 $mdpadmin = "";
                 $nombasededonnées = "userDB";
-        
-                // Créer une base de données
-                $createDB = "CREATE DATABASE IF NOT EXISTS userDB";
                 
                 // Se connecter au serveur
                 $connection = new mysqli($nomserveur, $nomadmin, $mdpadmin, $nombasededonnées);
@@ -62,7 +59,19 @@ body {
                 if ($connection->connect_error) {
                     die("Échec de connection: " . $connection->connect_error);
                 }
-        
+                
+                // Créer une base de données
+                $créerbdd = "CREATE DATABASE IF NOT EXISTS userDB";
+                
+                if ($connection->query($créerbdd) === TRUE)
+                {
+                    echo "Une base de donnée fut créée." . "<br>";
+                } 
+                else 
+                {
+                    echo "Erreur de création de base de données: " . $connection->error;
+                }
+                
                 // Créer une table de données
                 $createTable = "CREATE TABLE IF NOT EXISTS userTable"
                              . "("
@@ -71,15 +80,7 @@ body {
                              . "password VARCHAR(1024) NOT NULL,"
                              . "reg_date TIMESTAMP"
                              . ")";
-        
-                if ($connection->query($createDB) === TRUE)
-                {
-                    echo "Succès de base de données" . "<br>";
-                } 
-                else 
-                {
-                    echo "Erreur en création de base de données: " . $connection->error;
-                }
+                
         
                 // Create table
         
@@ -111,6 +112,7 @@ body {
                         if($connection->query($sql) === TRUE)
                         {
                             //username exists
+                            vérifierLogin();
                         } 
                         else 
                         {
@@ -119,6 +121,11 @@ body {
                         }
                     }
                     
+                    
+                }
+                
+                function vérifierLogin()
+                {
                     
                 }
                 
