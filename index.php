@@ -11,26 +11,25 @@
             
             <form method="post"  action="?action">
                 <label><b>Nom d'utilisateur: </b></label>
-                <input type="text" placeholder="Nom d'utilisateur" name="uname" required><br><br>
+                <input type="text" placeholder="Nom d'utilisateur" name="nom" required><br><br>
 
                 <label><b>Mot de passe: </b></label>
-                <input type="password" placeholder="Mot de passe" name="pword" required><br><br>
+                <input type="password" placeholder="Mot de passe" name="motdepasse" required><br><br>
                 <input type="hidden" name="act" value="run">
                 <button type="submit" name="login">Se Connecter</button>
             </form>
         
             <?php
-                // put your code here
                 
                 echo "<br><br><br>";
             
-                $servername = "localhost";
+                $nomdeserveur = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "userDB";
         
                 // Create connection
-                $connection = new mysqli($servername, $username, $password, $dbname);
+                $connection = new mysqli($nomdeserveur, $username, $password, $dbname);
         
                 // Check connection
                 if ($connection->connect_error) {
@@ -70,8 +69,8 @@
                 //submission
                 if(isset($_GET['action']))
                 {
-                    $un = $_POST['uname'];
-                    $pw = $_POST['pword'];
+                    $un = $_POST['nom'];
+                    $pw = $_POST['motdepasse'];
                     
                     $hashedpw = hash('sha256', $pw);
                     
