@@ -31,16 +31,6 @@
                 // Créer une base de données
                 $createDB = "CREATE DATABASE IF NOT EXISTS userDB";
                 
-                if ($connection->query($createDB) === TRUE)
-                {
-                    echo "Succès de base de données" . "<br>";
-                } 
-                else 
-                {
-                    echo "Erreur en création de base de données: " . $connection->error;
-                }
-                
-                
                 // Se connecter au serveur
                 $connection = new mysqli($nomserveur, $nomadmin, $mdpadmin, $nombasededonnées);
                 
@@ -56,6 +46,17 @@
                              . "password VARCHAR(1024) NOT NULL,"
                              . "reg_date TIMESTAMP"
                              . ")";
+        
+                if ($connection->query($createDB) === TRUE)
+                {
+                    echo "Succès de base de données" . "<br>";
+                } 
+                else 
+                {
+                    echo "Erreur en création de base de données: " . $connection->error;
+                }
+        
+                // Create table
         
                 if (mysqli_query($connection, $createTable))
                 {
