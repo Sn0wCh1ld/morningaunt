@@ -89,7 +89,7 @@ and open the template in the editor.
                     else 
                     {
                         //username does not exist
-                        nouvelUtilisateur($connection, $username, $hashedpw);
+                        nouvelUtilisateur($connection, $un, $hashedpw);
                     }
                     
                 }
