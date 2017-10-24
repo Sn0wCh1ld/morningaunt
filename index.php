@@ -6,32 +6,18 @@
     </head>
     <body>
         <style>
-        body {
-  height: 100%;
-}
-
-body {
-  -webkit-animation: background 5s cubic-bezier(1,0,0,1) infinite;
-  animation: background 5s cubic-bezier(1,0,0,1) infinite;  
-}
-
-
-@-webkit-keyframes background {
-  0% { background-color: #f99; }
-  33% { background-color: #9f9; }  
-  67% { background-color: #99f; }
-  100% { background-color: #f99; }
-}
-
-@keyframes background {
-  0% { background-color: #f99; }
-  33% { background-color: #9f9; }  
-  67% { background-color: #99f; }
-  100% { background-color: #f99; }
-}
-</style>
-        <br>
-        <br>
+            body {
+                height: 100%;
+                animation: background 5s cubic-bezier(1,0,0,1) infinite;  
+            }
+            @keyframes background {
+                0% { background-color: #f99; }
+                33% { background-color: #9f9; }  
+                67% { background-color: #99f; }
+                100% { background-color: #f99; }
+            }
+        </style>
+        <br><br>
         <div class="contenant" style="text-align:center">
             
             <form method="post"  action="?action">
@@ -43,11 +29,10 @@ body {
                 <input type="hidden" name="act" value="run">
                 <button type="submit" name="login">Se Connecter</button>
             </form>
+            
+        <br><br><br>
         
             <?php
-                
-                echo "<br><br><br>";
-            
                 $nomserveur = "localhost";
                 $nomadmin = "root";
                 $mdpadmin = "";
@@ -60,7 +45,7 @@ body {
                     die("Échec de connection: " . $connection->connect_error);
                 }
                 
-                // Créer une base de données
+                // Créer une base de données si elle n'existe pas déjà
                 $créerbdd = "CREATE DATABASE IF NOT EXISTS userDB";
                 
                 if ($connection->query($créerbdd) === TRUE)
@@ -72,7 +57,7 @@ body {
                     echo "Erreur de création de base de données: " . $connection->error;
                 }
                 
-                // Créer une table de données
+                // Créer une table de données si elle n'existe pas déjà
                 $createTable = "CREATE TABLE IF NOT EXISTS userTable"
                              . "("
                              . "id INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
@@ -80,9 +65,6 @@ body {
                              . "password VARCHAR(1024) NOT NULL,"
                              . "reg_date TIMESTAMP"
                              . ")";
-                
-        
-                // Create table
         
                 if (mysqli_query($connection, $createTable))
                 {
