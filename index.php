@@ -86,6 +86,7 @@
                         if($connection->query($sql) === TRUE)
                         {
                             //username exists
+                            vérifierLogin();
                         } 
                         else 
                         {
@@ -94,6 +95,11 @@
                         }
                     }
                     
+                    
+                }
+                
+                function vérifierLogin()
+                {
                     
                 }
                 
