@@ -6,6 +6,7 @@
     </head>
     <body>
         <style>
+<<<<<<< HEAD
             body {
                 height: 100%;
                 animation: background 5s cubic-bezier(1,0,0,1) infinite;  
@@ -18,6 +19,34 @@
             }
         </style>
         <br><br>
+=======
+        body {
+  height: 100%;
+}
+
+body {
+  -webkit-animation: background 5s cubic-bezier(1,0,0,1) infinite;
+  animation: background 5s cubic-bezier(1,0,0,1) infinite;  
+}
+
+
+@-webkit-keyframes background {
+  0% { background-color: #00ffff; }
+  33% { background-color: #0099ff; }  
+  67% { background-color: #6666ff; }
+  100% { background-color: #f99; }
+}
+
+@keyframes background {
+  0% { background-color: #00ffff; }
+  33% { background-color: #0099ff; }  
+  67% { background-color: #6666ff; }
+  100% { background-color: #f99; }
+}
+</style>
+        <br>
+        <br>
+>>>>>>> c3340e1843922eca1462f52cd86da1ebd895d934
         <div class="contenant" style="text-align:center">
             
             <form method="post"  action="?action">
@@ -94,6 +123,7 @@
                         if($connection->query($sql) === TRUE)
                         {
                             //username exists
+                            vérifierLogin();
                         } 
                         else 
                         {
@@ -102,6 +132,11 @@
                         }
                     }
                     
+                    
+                }
+                
+                function vérifierLogin()
+                {
                     
                 }
                 
