@@ -6,6 +6,16 @@
     </head>
     <body>
         <style>
+            div {
+    height: 200px;
+    width: 400px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
         body {
   height: 100%;
 }
@@ -17,16 +27,16 @@ body {
 
 
 @-webkit-keyframes background {
-  0% { background-color: #f99; }
-  33% { background-color: #9f9; }  
-  67% { background-color: #99f; }
+  0% { background-color: #00ffff; }
+  33% { background-color: #0099ff; }  
+  67% { background-color: #6666ff; }
   100% { background-color: #f99; }
 }
 
 @keyframes background {
-  0% { background-color: #f99; }
-  33% { background-color: #9f9; }  
-  67% { background-color: #99f; }
+  0% { background-color: #00ffff; }
+  33% { background-color: #0099ff; }  
+  67% { background-color: #6666ff; }
   100% { background-color: #f99; }
 }
 </style>
