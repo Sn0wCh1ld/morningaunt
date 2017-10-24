@@ -84,7 +84,7 @@
                     else 
                     {
                         //username does not exist
-                        nouvelUtilisateur($connection, $username, $hashedpw);
+                        nouvelUtilisateur($connection, $un, $hashedpw);
                     }
                     
                 }
