@@ -14,7 +14,7 @@
                 <input type="text" placeholder="Nom d'utilisateur" name="nom" required><br><br>
 
                 <label><b>Mot de passe: </b></label>
-                <input type="password" placeholder="Mot de passe" name="motdepasse" required><br><br>
+                <input type="password" placeholder="Mot de passe" name="mdp" required><br><br>
                 <input type="hidden" name="act" value="run">
                 <button type="submit" name="login">Se Connecter</button>
             </form>
@@ -23,13 +23,13 @@
                 
                 echo "<br><br><br>";
             
-                $nomdeserveur = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "userDB";
+                $nomserveur = "localhost";
+                $nomadmin = "root";
+                $mdpadmin = "";
+                $nombasededonnées = "userDB";
         
                 // Create connection
-                $connection = new mysqli($nomdeserveur, $username, $password, $dbname);
+                $connection = new mysqli($nomserveur, $nomadmin, $mdpadmin, $nombasededonnées);
         
                 // Check connection
                 if ($connection->connect_error) {
@@ -70,7 +70,7 @@
                 if(isset($_GET['action']))
                 {
                     $un = $_POST['nom'];
-                    $pw = $_POST['motdepasse'];
+                    $pw = $_POST['mdp'];
                     
                     $hashedpw = hash('sha256', $pw);
                     
