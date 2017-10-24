@@ -91,7 +91,6 @@ and open the template in the editor.
                         //username does not exist
                         nouvelUtilisateur($connection, $un, $hashedpw);
                     }
-                    
                 }
                 
                 function nouvelUtilisateur($connection, $un, $hashedpw)
