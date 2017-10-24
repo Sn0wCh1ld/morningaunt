@@ -120,31 +120,29 @@ body {
                             nouvelUtilisateur($connection, $un, $hashedpw);
                         }
                     }
-                    
-                    
                 }
                 
                 function vérifierLogin()
                 {
-                    
+                    $sql = "SELECT username FROM userTable";
                 }
                 
                 function nouvelUtilisateur($connection, $un, $hashedpw)
+                {
+                    $sql = "INSERT INTO userTable (username, password)
+                            VALUES ('$un', '$hashedpw')";
+                    
+                    if ($connection->query($sql) === TRUE)
                     {
-                        $sql = "INSERT INTO userTable (username, password)
-                                VALUES ('$un', '$hashedpw')";
+                        echo "<br>" . "DICKHEAD";
+                    }
+                    else
+                    {
+                        echo "<br>" . "ERROR: " . $connection->error;
+                    }
                     
-                        if ($connection->query($sql) === TRUE)
-                        {
-                            echo "<br>" . "DICKHEAD";
-                        }
-                        else
-                        {
-                            echo "<br>" . "ERROR: " . $connection->error;
-                        }
-                    
-                        //your code
-                        echo "<br>" . 'LOGGED IN';
+                    //your code
+                    echo "<br>" . 'LOGGED IN';
                     }
             ?>
         </div>
