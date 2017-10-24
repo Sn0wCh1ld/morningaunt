@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -12,16 +7,16 @@ and open the template in the editor.
     <body>
         <br>
         <br>
-        <div class="container" style="text-align:center">
+        <div class="contenant" style="text-align:center">
             
             <form method="post"  action="?action">
-                <label><b>Username: </b></label>
-                <input type="text" placeholder="Username" name="uname" required><br><br>
+                <label><b>Nom d'utilisateur: </b></label>
+                <input type="text" placeholder="Nom d'utilisateur" name="uname" required><br><br>
 
-                <label><b>Password: </b></label>
-                <input type="password" placeholder="Password" name="pword" required><br><br>
+                <label><b>Mot de passe: </b></label>
+                <input type="password" placeholder="Mot de passe" name="pword" required><br><br>
                 <input type="hidden" name="act" value="run">
-                <button type="submit" name="login">Log In</button>
+                <button type="submit" name="login">Se Connecter</button>
             </form>
         
             <?php
