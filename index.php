@@ -28,24 +28,9 @@
                 $mdpadmin = "";
                 $nombasededonnées = "userDB";
         
-                // Create connection
-                $connection = new mysqli($nomserveur, $nomadmin, $mdpadmin, $nombasededonnées);
-        
-                // Check connection
-                if ($connection->connect_error) {
-                    die("Échec de connection: " . $connection->connect_error);
-                }
-        
-                // Create database
+                // Créer une base de données
                 $createDB = "CREATE DATABASE IF NOT EXISTS userDB";
-                $createTable = "CREATE TABLE IF NOT EXISTS userTable"
-                             . "("
-                             . "id INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                             . "username VARCHAR(30) NOT NULL,"
-                             . "password VARCHAR(1024) NOT NULL,"
-                             . "reg_date TIMESTAMP"
-                             . ")";
-        
+                
                 if ($connection->query($createDB) === TRUE)
                 {
                     echo "Succès de base de données" . "<br>";
@@ -54,8 +39,23 @@
                 {
                     echo "Erreur en création de base de données: " . $connection->error;
                 }
+                
+                
+                // Se connecter au serveur
+                $connection = new mysqli($nomserveur, $nomadmin, $mdpadmin, $nombasededonnées);
+                
+                if ($connection->connect_error) {
+                    die("Échec de connection: " . $connection->connect_error);
+                }
         
-                // Create table
+                // Créer une table de données
+                $createTable = "CREATE TABLE IF NOT EXISTS userTable"
+                             . "("
+                             . "id INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
+                             . "username VARCHAR(30) NOT NULL,"
+                             . "password VARCHAR(1024) NOT NULL,"
+                             . "reg_date TIMESTAMP"
+                             . ")";
         
                 if (mysqli_query($connection, $createTable))
                 {
