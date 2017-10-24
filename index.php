@@ -21,7 +21,7 @@ and open the template in the editor.
                 <label><b>Password: </b></label>
                 <input type="password" placeholder="Password" name="pword" required><br><br>
                 <input type="hidden" name="act" value="run">
-                <button type="submit" name="login">Log In LOL</button>
+                <button type="submit" name="login">Log In</button>
             </form>
         
             <?php
@@ -80,26 +80,37 @@ and open the template in the editor.
                     
                     $hashedpw = hash('sha256', $pw);
                     
-                    $sql = "INSERT INTO userTable (username, password)
-                            VALUES ('$un', '$hashedpw')";
+                    $sql = "select * from 'userTable' where name = $un";
                     
-                    if ($connection->query($sql) === TRUE)
+                    if($connection->query($sql) === TRUE)
                     {
-                        echo "<br>" . "DICKHEAD";
-                    }
-                    else
+                         //username exists
+                    } 
+                    else 
                     {
-                        echo "<br>" . "ERROR: " . $connection->error;
+                        //username does not exist
+                        nouvelUtilisateur($connection, $username, $hashedpw);
                     }
                     
-                    
-                    
-                    
-                    
-                    
-                    //your code
-                    echo "<br>" . 'LOGGED IN';
                 }
+                
+                function nouvelUtilisateur($connection, $un, $hashedpw)
+                    {
+                        $sql = "INSERT INTO userTable (username, password)
+                                VALUES ('$un', '$hashedpw')";
+                    
+                        if ($connection->query($sql) === TRUE)
+                        {
+                            echo "<br>" . "DICKHEAD";
+                        }
+                        else
+                        {
+                            echo "<br>" . "ERROR: " . $connection->error;
+                        }
+                    
+                        //your code
+                        echo "<br>" . 'LOGGED IN';
+                    }
             ?>
         </div>
     </body>
