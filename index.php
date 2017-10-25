@@ -140,7 +140,7 @@
                     }
                     else
                     {
-                        echo "<br>" . "ERROR: " . $connection->error;
+                        echo "<br>" . "ERREUR: " . $connection->error;
                     }
                 }
             ?>
