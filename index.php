@@ -78,8 +78,8 @@
                 $createTable = "CREATE TABLE IF NOT EXISTS userTable"
                              . "("
                              . "id INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                             . "username VARCHAR(30) NOT NULL,"
-                             . "password VARCHAR(1024) NOT NULL,"
+                             . "nom_utilisateur VARCHAR(30) NOT NULL,"
+                             . "mot_de_passe VARCHAR(1024) NOT NULL,"
                              . "reg_date TIMESTAMP"
                              . ")";
         
@@ -123,12 +123,12 @@
                 
                 function vérifierLogin()
                 {
-                    $sql = "SELECT username FROM userTable";
+                    $sql = "SELECT nom_utilisateur FROM userTable";
                 }
                 
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
-                    $sql = "INSERT INTO userTable (username, password)
+                    $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
                     
                     if ($connection->query($sql) === TRUE)
