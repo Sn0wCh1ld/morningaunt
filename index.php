@@ -34,9 +34,7 @@
                 100% { background-color: #f99; }
             }
         </style>
-        <br><br>
-        <br>
-        <br>
+        
         <div class="contenant" style="text-align:center">
             <h1>BLS</h1>
             <form method="post"  action="?action">
@@ -49,7 +47,7 @@
                 <button type="submit" name="login">Se Connecter</button>
             </form>
             
-        <br><br><br>
+            <br><br><br>
         
             <?php
                 $nomserveur = "localhost";
@@ -69,7 +67,7 @@
                 
                 if ($connection->query($créerbdd) === TRUE)
                 {
-                    echo "Une base de donnée fut créée." . "<br>";
+                    echo "Une base de donnée fut créée ou existe déjà.<br>";
                 } 
                 else 
                 {
@@ -87,28 +85,28 @@
         
                 if (mysqli_query($connection, $createTable))
                 {
-                    echo "Table created or already exists";
+                    echo "Une table de données fut créée ou existe déjà.";
                 }
                 else
                 {
-                    echo "Error creating table: " . mysqli_error($connection);
+                    echo "Erreur de création de table de données: " . mysqli_error($connection);
                 }
                 
-                //submission
+                // Fonction du bouton de connexion
                 if(isset($_GET['action']))
                 {
-                    $un = $_POST['nom'];
-                    $pw = $_POST['mdp'];
+                    $nom = $_POST['nom'];
+                    $mdp = $_POST['mdp'];
                     
-                    if (empty($pw))
+                    if (empty($mdp))
                     {
                         echo "<br>" . "Veuillez inscrire un nom d'utilisateur";
                     }
                     else
                     {
-                        $hashedpw = hash('sha256', $pw);
+                        $hashedmdp = hash('sha256', $mdp);
                     
-                        $sql = "select * from 'userTable' where name = $un";
+                        $sql = "select * from 'userTable' where name = $nom";
                     
                         if($connection->query($sql) === TRUE)
                         {
@@ -119,7 +117,7 @@
                         else 
                         {
                             //username does not exist
-                            nouvelUtilisateur($connection, $un, $hashedpw);
+                            nouvelUtilisateur($connection, $nom, $hashedmdp);
                         }
                     }
                 }
@@ -129,10 +127,10 @@
                     $sql = "SELECT username FROM userTable";
                 }
                 
-                function nouvelUtilisateur($connection, $un, $hashedpw)
+                function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
                     $sql = "INSERT INTO userTable (username, password)
-                            VALUES ('$un', '$hashedpw')";
+                            VALUES ('$nom', '$hashedmdp')";
                     
                     if ($connection->query($sql) === TRUE)
                     {
