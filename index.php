@@ -12,7 +12,7 @@
                 width: 400px;
 
                 position: fixed;
-                top: 50%;
+                top: 40%;
                 left: 50%;
                 margin-top: -100px;
                 margin-left: -200px;
@@ -34,7 +34,7 @@
         <br>
         <br>
         <div class="contenant" style="text-align:center">
-            
+            <h1>BLS</h1>
             <form method="post"  action="?action">
                 <label><b>Nom d'utilisateur: </b></label>
                 <input type="text" placeholder="Nom d'utilisateur" name="nom" required><br><br>
