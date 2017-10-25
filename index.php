@@ -10,7 +10,7 @@
             {
                 font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
             }
-            div 
+            /*div 
             {
                 height: 200px;
                 width: 400px;
@@ -20,7 +20,7 @@
                 left: 50%;
                 margin-top: -100px;
                 margin-left: -200px;
-            }
+            }*/
             body 
             {
                 height: 100%;
@@ -106,9 +106,11 @@
                     {
                         $hashedmdp = hash('sha256', $mdp);
                     
-                        $sql = "select * from 'userTable' where name = $nom";
-                    
-                        if($connection->query($sql) === TRUE)
+                        $result = mysql_query("SELECT * FROM userTable WHERE nom_utilisateur = $nom");
+                        $nombreRangées = mysql_num_rows($result);
+                        
+                        
+                        if($nombreRangées > 0)
                         {
                             //username exists
                             vérifierLogin();
