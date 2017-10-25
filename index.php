@@ -92,21 +92,21 @@
                     echo "Erreur de création de table de données: " . mysqli_error($connection);
                 }
                 
-                // Données soumisses
+                // Fonction du bouton de connexion
                 if(isset($_GET['action']))
                 {
-                    $un = $_POST['nom'];
-                    $pw = $_POST['mdp'];
+                    $nom = $_POST['nom'];
+                    $mdp = $_POST['mdp'];
                     
-                    if (empty($pw))
+                    if (empty($mdp))
                     {
                         echo "<br>" . "Veuillez inscrire un nom d'utilisateur";
                     }
                     else
                     {
-                        $hashedpw = hash('sha256', $pw);
+                        $hashedmdp = hash('sha256', $mdp);
                     
-                        $sql = "select * from 'userTable' where name = $un";
+                        $sql = "select * from 'userTable' where name = $nom";
                     
                         if($connection->query($sql) === TRUE)
                         {
@@ -116,7 +116,7 @@
                         else 
                         {
                             //username does not exist
-                            nouvelUtilisateur($connection, $un, $hashedpw);
+                            nouvelUtilisateur($connection, $nom, $hashedmdp);
                         }
                     }
                 }
@@ -126,10 +126,10 @@
                     $sql = "SELECT username FROM userTable";
                 }
                 
-                function nouvelUtilisateur($connection, $un, $hashedpw)
+                function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
                     $sql = "INSERT INTO userTable (username, password)
-                            VALUES ('$un', '$hashedpw')";
+                            VALUES ('$nom', '$hashedmdp')";
                     
                     if ($connection->query($sql) === TRUE)
                     {
