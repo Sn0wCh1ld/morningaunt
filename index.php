@@ -10,7 +10,7 @@
             {
                 font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
             }
-            /*div 
+            div 
             {
                 height: 200px;
                 width: 400px;
@@ -20,7 +20,7 @@
                 left: 50%;
                 margin-top: -100px;
                 margin-left: -200px;
-            }*/
+            }
             body 
             {
                 height: 100%;
