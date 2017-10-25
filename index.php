@@ -29,7 +29,7 @@
             @keyframes background 
             {
                 0% { background-color: #f99; }
-                33% { background-color: #9f9; }  
+                33% { background-color: #9f9; }
                 67% { background-color: #99f; }
                 100% { background-color: #f99; }
             }
@@ -112,6 +112,7 @@
                         {
                             //username exists
                             vérifierLogin();
+                            echo "<br>" . "USER ALREADY EXISTS";
                         } 
                         else 
                         {
@@ -133,16 +134,13 @@
                     
                     if ($connection->query($sql) === TRUE)
                     {
-                        echo "<br>" . "DICKHEAD";
+                        echo "<br>" . "NEW USER CREATED";
                     }
                     else
                     {
                         echo "<br>" . "ERROR: " . $connection->error;
                     }
-                    
-                    //your code
-                    echo "<br>" . 'LOGGED IN';
-                    }
+                }
             ?>
         </div>
     </body>
