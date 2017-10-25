@@ -5,7 +5,11 @@
         <title></title>
     </head>
     <body>
-        <style>            
+        <style>
+            html
+            {
+                font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+            }
             div 
             {
                 height: 200px;
