@@ -46,8 +46,6 @@
                 <input type="hidden" name="act" value="run">
                 <button type="submit" name="login">Se Connecter</button>
             </form>
-            
-            <br><br><br>
         
             <?php
                 $nomserveur = "localhost";
