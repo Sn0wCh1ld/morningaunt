@@ -67,7 +67,7 @@
                 
                 if ($connection->query($créerbdd) === TRUE)
                 {
-                    echo "Une base de donnée fut créée ou existe déjà.<br>";
+                    //echo "Une base de donnée fut créée ou existe déjà.<br>";
                 } 
                 else 
                 {
@@ -85,7 +85,7 @@
         
                 if (mysqli_query($connection, $createTable))
                 {
-                    echo "Une table de données fut créée ou existe déjà.";
+                    //echo "Une table de données fut créée ou existe déjà.";
                 }
                 else
                 {
