@@ -100,7 +100,7 @@
                     
                     if (empty($mdp))
                     {
-                        echo "<br>" . "Veuillez inscrire un nom d'utilisateur";
+                        echo "<br>" . "Veuillez inscrire un mot de passe";
                     }
                     else
                     {
@@ -110,13 +110,13 @@
                     
                         if($connection->query($sql) === TRUE)
                         {
-                            //username exists
+                            //Si l'utilisateur existe
                             vérifierLogin();
-                            echo "<br>" . "USER ALREADY EXISTS";
+                            echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
                         else 
                         {
-                            //username does not exist
+                            // Si l'utilisateur n'existe pas
                             nouvelUtilisateur($connection, $nom, $hashedmdp);
                         }
                     }
@@ -134,7 +134,7 @@
                     
                     if ($connection->query($sql) === TRUE)
                     {
-                        echo "<br>" . "NEW USER CREATED";
+                        echo "<br>" . "NOUVEL UTILISATEUR";
                     }
                     else
                     {
