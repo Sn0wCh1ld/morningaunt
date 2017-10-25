@@ -128,6 +128,8 @@
                 function vérifierLogin()
                 {
                     $sql = "SELECT nom_utilisateur FROM userTable";
+                    
+                    
                 }
                 
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
