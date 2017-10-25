@@ -30,9 +30,7 @@
                 100% { background-color: #f99; }
             }
         </style>
-        <br><br>
-        <br>
-        <br>
+        
         <div class="contenant" style="text-align:center">
             <h1>BLS</h1>
             <form method="post"  action="?action">
@@ -45,7 +43,7 @@
                 <button type="submit" name="login">Se Connecter</button>
             </form>
             
-        <br><br><br>
+            <br><br><br>
         
             <?php
                 $nomserveur = "localhost";
@@ -65,7 +63,7 @@
                 
                 if ($connection->query($créerbdd) === TRUE)
                 {
-                    echo "Une base de donnée fut créée." . "<br>";
+                    echo "Une base de donnée fut créée ou existe déjà.<br>";
                 } 
                 else 
                 {
@@ -83,14 +81,14 @@
         
                 if (mysqli_query($connection, $createTable))
                 {
-                    echo "Table created or already exists";
+                    echo "Une table de données fut créée ou existe déjà.";
                 }
                 else
                 {
-                    echo "Error creating table: " . mysqli_error($connection);
+                    echo "Erreur de création de table de données: " . mysqli_error($connection);
                 }
                 
-                //submission
+                // Données soumisses
                 if(isset($_GET['action']))
                 {
                     $un = $_POST['nom'];
