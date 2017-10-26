@@ -113,8 +113,6 @@
                         {
                             //Si l'utilisateur existe
                             vérifierLogin($connection, $nom, $hashedmdp);
-                            // Si l'utilisateur existe
-                            vérifierLogin();
                             echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
                         else 
