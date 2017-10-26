@@ -148,7 +148,7 @@
                     
                     if ($connection->query($sql) === TRUE)
                     {
-                        echo "<br>" . "NOUVEL UTILISATEUR";
+                        echo "<br>" . "NOUVEL UTILISATEUR CRÉÉ";
                     }
                     else
                     {
