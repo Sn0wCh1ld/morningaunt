@@ -66,7 +66,7 @@
                 
                 if ($connection->query($créerbdd) === TRUE)
                 {
-                    //echo "Une base de donnée fut créée ou existe déjà.<br>";
+                    //echo "Une base de donnée fut créée ou existe déjà.";
                 } 
                 else 
                 {
