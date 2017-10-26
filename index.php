@@ -29,9 +29,10 @@
             @keyframes background 
             {
                 0% { background-color: #ccccff; }
-                33% { background-color: #ccffff; }
-                67% { background-color: #ffffcc; }
-                100% { background-color: #ccffcc; }
+                25% { background-color: #ccffff; }
+                50% { background-color: #ffffcc; }
+                75% { background-color: #ccffcc; }
+                100% { background-color: #ffffff }
             }
         </style>
         
@@ -105,7 +106,7 @@
                         $hashedmdp = hash('sha256', $mdp);
                     
                         
-                        $resultat = mysqli_query($connection, "SELECT * FROM usertable WHERE nom_utilisateur = '$nom'");
+                        $resultat = mysqli_query($connection, "SELECT nom_utilisateur FROM usertable WHERE nom_utilisateur = '$nom'");
                         $nombreRangées = mysqli_num_rows($resultat);
                         
                         
@@ -125,8 +126,15 @@
                 
                 // Vérifier l'information de l'utilisateur
                 function vérifierLogin($connection, $nom, $hashedmdp)
+<<<<<<< HEAD
                 {                    
                     $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  password = '$hashedmdp'");
+=======
+                {
+                    $sql = "SELECT nom_utilisateur FROM userTable";
+                    
+                    $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom'");
+>>>>>>> 61fb75aaedfa11660db262fe956d3a45a1520fdd
                 
                     $nombreRangées = mysqli_num_rows($resultat);
                     
@@ -136,7 +144,7 @@
                     }
                     else
                     {
-                        echo "<br>" . "Utilisateur existe déjà, ou mot de pass incorrecte";
+                        echo "<br>" . "Utilisateur existe déjà, ou mot de passe incorrecte";
                     }
                 }
                 
