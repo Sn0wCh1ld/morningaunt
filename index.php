@@ -28,10 +28,10 @@
             }
             @keyframes background 
             {
-                0% { background-color: #f99; }
-                33% { background-color: #9f9; }
-                67% { background-color: #99f; }
-                100% { background-color: #f99; }
+                0% { background-color: #ccccff; }
+                33% { background-color: #ccffff; }
+                67% { background-color: #ffffcc; }
+                100% { background-color: #ccffcc; }
             }
         </style>
         
@@ -105,14 +105,19 @@
                         $hashedmdp = hash('sha256', $mdp);
                     
                         
-                        $resultat = mysqli_query($connection, "SELECT nom_utilisateur FROM usertable WHERE nom_utilisateur = '$nom'");
+                        $resultat = mysqli_query($connection, "SELECT * FROM usertable WHERE nom_utilisateur = '$nom'");
                         $nombreRangées = mysqli_num_rows($resultat);
                         
                         
                         if($nombreRangées > 0)
                         {
+<<<<<<< HEAD
                             //Si l'utilisateur existe
                             vérifierLogin($connection, $nom, $hashedmdp);
+=======
+                            // Si l'utilisateur existe
+                            vérifierLogin();
+>>>>>>> ff9f128be9e848f1172c6481e7246a5147f74df1
                             echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
                         else 
@@ -123,7 +128,12 @@
                     }
                 }
                 
+<<<<<<< HEAD
                 function vérifierLogin($connection, $nom, $hashedmdp)
+=======
+                // Vérifier l'information de l'utilisateur
+                function vérifierLogin()
+>>>>>>> ff9f128be9e848f1172c6481e7246a5147f74df1
                 {
                     $sql = "SELECT nom_utilisateur FROM userTable";
                     
@@ -141,6 +151,7 @@
                     }
                 }
                 
+                // Insérer les données d'un nouvel utilisateur
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
