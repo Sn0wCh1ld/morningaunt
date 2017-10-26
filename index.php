@@ -97,9 +97,9 @@
                     $nom = $_POST['nom'];
                     $mdp = $_POST['mdp'];
                     
-                    if (empty($mdp))
+                    if (empty($mdp) || empty($nom))
                     {
-                        echo "<br>" . "Veuillez inscrire un mot de passe";
+                        //La boite de texte dit à l'utilisateur d'inscrire un nom d'utilisateur
                     }
                     else
                     {
@@ -130,6 +130,7 @@
                 
                     $nombreRangées = mysqli_num_rows($resultat);
                     
+                    //si le mot de passe correspond au nom d'utilisateur
                     if($nombreRangées > 0)
                     {
                         echo "<br>CONNECTION FONCTIONNE";
@@ -146,6 +147,8 @@
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
                     
+                    
+                    //Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE)
                     {
                         echo "<br>" . "NOUVEL UTILISATEUR CRÉÉ";
