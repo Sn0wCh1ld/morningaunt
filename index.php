@@ -130,7 +130,7 @@
                 
                     $nombreRangées = mysqli_num_rows($resultat);
                     
-                    //si le mot de passe correspond au nom d'utilisateur
+                    // Si le mot de passe correspond au nom d'utilisateur
                     if($nombreRangées > 0)
                     {
                         echo "<br>CONNECTION FONCTIONNE";
@@ -148,7 +148,7 @@
                             VALUES ('$nom', '$hashedmdp')";
                     
                     
-                    //Si un nouvel utilisateur est créé
+                    // Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE)
                     {
                         echo "<br>" . "NOUVEL UTILISATEUR CRÉÉ";
