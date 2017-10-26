@@ -111,7 +111,7 @@
                         
                         if($nombreRangées > 0)
                         {
-                            //Si l'utilisateur existe
+                            // Si l'utilisateur existe
                             vérifierLogin();
                             echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
@@ -123,6 +123,7 @@
                     }
                 }
                 
+                // Vérifier l'information de l'utilisateur
                 function vérifierLogin()
                 {
                     $sql = "SELECT nom_utilisateur FROM userTable";
@@ -130,6 +131,7 @@
                     
                 }
                 
+                // Insérer les données d'un nouvel utilisateur
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
