@@ -78,8 +78,7 @@
                              . "("
                              . "id INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                              . "nom_utilisateur VARCHAR(30) NOT NULL,"
-                             . "mot_de_passe VARCHAR(1024) NOT NULL,"
-                             . "reg_date TIMESTAMP"
+                             . "mot_de_passe VARCHAR(1024) NOT NULL"
                              . ")";
         
                 if (mysqli_query($connection, $createTable))
@@ -90,6 +89,21 @@
                 {
                     echo "Erreur de création de table de données: " . mysqli_error($connection);
                 }
+                
+                /*// Créer une table de données si elle n'existe pas déjà
+                $createTable = "CREATE TABLE IF NOT EXISTS userdata"
+                             . "("
+                             . "age INT() NOT NULL,"
+                             . ")";
+        
+                if (mysqli_query($connection, $createTable))
+                {
+                    //echo "Une table de données fut créée ou existe déjà.";
+                }
+                else
+                {
+                    echo "Erreur de création de table de données: " . mysqli_error($connection);
+                }*/
                 
                 // Fonction du bouton de connexion
                 if(isset($_GET['action']))
