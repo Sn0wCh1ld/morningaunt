@@ -132,11 +132,11 @@
                     
                     if($nombreRangées > 0)
                     {
-                        echo "CONNECTION FONCTIONNE";
+                        echo "<br>CONNECTION FONCTIONNE";
                     }
                     else
                     {
-                        echo "LE MOT DE PASSE EST INCORRECT";
+                        echo "<br>CE NOM D'UTILISATEUR EXISTE DÉJÀ OU LE MOT DE PASSE EST INCORRECT";
                     }
                 }
                 
