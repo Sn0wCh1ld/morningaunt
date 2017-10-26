@@ -105,8 +105,8 @@
                         $hashedmdp = hash('sha256', $mdp);
                     
                         
-                        $result = mysqli_query($connection, "SELECT nom_utilisateur FROM usertable WHERE nom_utilisateur = '$nom'");
-                        $nombreRangées = mysqli_num_rows($result);
+                        $resultat = mysqli_query($connection, "SELECT nom_utilisateur FROM usertable WHERE nom_utilisateur = '$nom'");
+                        $nombreRangées = mysqli_num_rows($resultat);
                         
                         
                         if($nombreRangées > 0)
