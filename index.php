@@ -125,9 +125,8 @@
                     }
                 }
                 
-                function vérifierLogin($connection, $nom, $hashedmdp)
                 // Vérifier l'information de l'utilisateur
-                function vérifierLogin()
+                function vérifierLogin($connection, $nom, $hashedmdp)
                 {
                     $sql = "SELECT nom_utilisateur FROM userTable";
                     
