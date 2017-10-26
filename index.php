@@ -128,7 +128,7 @@
                 {
                     $sql = "SELECT nom_utilisateur FROM userTable";
                     
-                    $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  password = '$hashedmdp'");
+                    $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom'");
                 
                     $nombreRangées = mysqli_num_rows($resultat);
                     
@@ -138,7 +138,7 @@
                     }
                     else
                     {
-                        echo "<br>" . "Utilisateur existe déjà, ou mot de pass incorrecte";
+                        echo "<br>" . "Utilisateur existe déjà, ou mot de passe incorrecte";
                     }
                 }
                 
