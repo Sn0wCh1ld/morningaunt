@@ -112,7 +112,7 @@
                         if($nombreRangées > 0)
                         {
                             //Si l'utilisateur existe
-                            vérifierLogin();
+                            vérifierLogin($connection, $nom, $hashedmdp);
                             echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
                         else 
@@ -123,11 +123,22 @@
                     }
                 }
                 
-                function vérifierLogin()
+                function vérifierLogin($connection, $nom, $hashedmdp)
                 {
                     $sql = "SELECT nom_utilisateur FROM userTable";
                     
+                    $result = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  password = '$hashedmdp'");
+                
+                    $nombreRangées = mysqli_num_rows($resultat);
                     
+                    if($nombreRangées > 0)
+                    {
+                        echo "<br>" . "DICKHEAD";
+                    }
+                    else
+                    {
+                        echo "<br>" . "Utilisateur existe déjà, ou mot de pass incorrecte";
+                    }
                 }
                 
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
