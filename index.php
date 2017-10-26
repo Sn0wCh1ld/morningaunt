@@ -106,7 +106,7 @@
                         $hashedmdp = hash('sha256', $mdp);
                     
                         
-                        $resultat = mysqli_query($connection, "SELECT * FROM usertable WHERE nom_utilisateur = '$nom'");
+                        $resultat = mysqli_query($connection, "SELECT nom_utilisateur FROM usertable WHERE nom_utilisateur = '$nom'");
                         $nombreRangées = mysqli_num_rows($resultat);
                         
                         
@@ -114,8 +114,6 @@
                         {
                             //Si l'utilisateur existe
                             vérifierLogin($connection, $nom, $hashedmdp);
-                            // Si l'utilisateur existe
-                            vérifierLogin();
                             echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
                         else 
@@ -131,7 +129,7 @@
                 {
                     $sql = "SELECT nom_utilisateur FROM userTable";
                     
-                    $result = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  password = '$hashedmdp'");
+                    $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  password = '$hashedmdp'");
                 
                     $nombreRangées = mysqli_num_rows($resultat);
                     
