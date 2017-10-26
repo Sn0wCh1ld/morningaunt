@@ -114,7 +114,6 @@
                         {
                             //Si l'utilisateur existe
                             vérifierLogin($connection, $nom, $hashedmdp);
-                            echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
                         else 
                         {
@@ -149,7 +148,7 @@
                     
                     if ($connection->query($sql) === TRUE)
                     {
-                        echo "<br>" . "NOUVEL UTILISATEUR";
+                        echo "<br>" . "NOUVEL UTILISATEUR CRÉÉ";
                     }
                     else
                     {
