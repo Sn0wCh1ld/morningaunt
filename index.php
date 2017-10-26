@@ -114,7 +114,6 @@
                         {
                             //Si l'utilisateur existe
                             vérifierLogin($connection, $nom, $hashedmdp);
-                            echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
                         else 
                         {
@@ -126,18 +125,18 @@
                 
                 // Vérifier l'information de l'utilisateur
                 function vérifierLogin($connection, $nom, $hashedmdp)
-                {                    
+                {
                     $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  mot_de_passe = '$hashedmdp'");
                 
                     $nombreRangées = mysqli_num_rows($resultat);
                     
                     if($nombreRangées > 0)
                     {
-                        echo "<br>" . "DICKHEAD";
+                        echo "CONNECTION FONCTIONNE";
                     }
                     else
                     {
-                        echo "<br>" . "Utilisateur existe déjà, ou mot de passe incorrecte";
+                        echo "LE MOT DE PASSE EST INCORRECT";
                     }
                 }
                 
