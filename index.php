@@ -29,9 +29,10 @@
             @keyframes background 
             {
                 0% { background-color: #ccccff; }
-                33% { background-color: #ccffff; }
-                67% { background-color: #ffffcc; }
-                100% { background-color: #ccffcc; }
+                25% { background-color: #ccffff; }
+                50% { background-color: #ffffcc; }
+                75% { background-color: #ccffcc; }
+                100% { background-color: #ffffff }
             }
         </style>
         
