@@ -125,9 +125,7 @@
                 
                 // Vérifier l'information de l'utilisateur
                 function vérifierLogin($connection, $nom, $hashedmdp)
-                {
-                    $sql = "SELECT nom_utilisateur FROM userTable";
-                    
+                {                    
                     $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  password = '$hashedmdp'");
                 
                     $nombreRangées = mysqli_num_rows($resultat);
