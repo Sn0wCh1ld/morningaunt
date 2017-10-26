@@ -111,13 +111,10 @@
                         
                         if($nombreRangées > 0)
                         {
-<<<<<<< HEAD
                             //Si l'utilisateur existe
                             vérifierLogin($connection, $nom, $hashedmdp);
-=======
                             // Si l'utilisateur existe
                             vérifierLogin();
->>>>>>> ff9f128be9e848f1172c6481e7246a5147f74df1
                             echo "<br>" . "L'UTILISATEUR EXISTE DÉJÀ";
                         } 
                         else 
@@ -128,12 +125,9 @@
                     }
                 }
                 
-<<<<<<< HEAD
                 function vérifierLogin($connection, $nom, $hashedmdp)
-=======
                 // Vérifier l'information de l'utilisateur
                 function vérifierLogin()
->>>>>>> ff9f128be9e848f1172c6481e7246a5147f74df1
                 {
                     $sql = "SELECT nom_utilisateur FROM userTable";
                     
