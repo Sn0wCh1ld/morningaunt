@@ -92,7 +92,7 @@
                     echo "Erreur de création de table de données: " . mysqli_error($connection);
                 }
                 
-                // Créer une table de données si elle n'existe pas déjà
+                // Créer une seconde table de données si elle n'existe pas déjà
                 $createDataTable = "CREATE TABLE IF NOT EXISTS userdata"
                              . "("
                              . "nom_utilisateur VARCHAR(30) NOT NULL,"
@@ -101,7 +101,7 @@
         
                 if (mysqli_query($connection, $createDataTable))
                 {
-                    //echo "userdata fut créée ou existe déjà.";
+                    //echo "La seconde table de données fut créée ou existe déjà.";
                 }
                 else
                 {
