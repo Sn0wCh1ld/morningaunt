@@ -41,6 +41,24 @@
             }
         </style>
         
+        <script>
+            function myFunction() 
+            {
+                var txt;
+                var person = prompt("Please enter your name:", "Harry Potter");
+                if (person == null || person == "") 
+                {
+                    txt = "User cancelled the prompt.";
+                } 
+                else 
+                {
+                    txt = "Hello " + person + "! How are you today?";
+                }
+                document.getElementById("demo").innerHTML = txt;
+            }
+        </script>
+
+        
         <div class="contenant" style="text-align:center">
             <h1>BLS</h1>
             <form method="post"  action="?action">
@@ -142,8 +160,8 @@
                 {
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
-                    $sqlUserData = "INSERT INTO userdata (nom_utilisateur)
-                            VALUES ('$nom')";
+                    $sqlUserData = "INSERT INTO userdata (nom_utilisateur, nomComplet)
+                            VALUES ('$nom', 'testingdickhead')";
                     
                     // Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
