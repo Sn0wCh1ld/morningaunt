@@ -10,7 +10,8 @@
             {
                 font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
             }
-            div 
+            
+            .contenant 
             {
                 height: 200px;
                 width: 400px;
@@ -27,7 +28,8 @@
                 background-image: url("http://rs529.pbsrc.com/albums/dd337/shan2802/SilverStar.gif?w=280&h=210&fit=crop");
                 background-repeat: repeat-x;
                 height: 100%;
-                animation: background 5s cubic-bezier(1,0,0,1) infinite; 
+                animation: background 5s cubic-bezier(1,0,0,1) infinite;
+                
             }
             @keyframes background 
             {
