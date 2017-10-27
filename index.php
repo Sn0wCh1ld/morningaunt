@@ -96,7 +96,7 @@
                 // Créer une seconde table de données si elle n'existe pas déjà
                 $createDataTable = "CREATE TABLE IF NOT EXISTS userdata
                             (nom_utilisateur VARCHAR(30) NOT NULL,
-                            age INT UNSIGNED)";
+                            nomComplet VARCHAR(256) NOT NULL)";
         
                 if (mysqli_query($connection, $createDataTable))
                 {
@@ -184,7 +184,7 @@
                     
                     while($row = mysqli_fetch_assoc($sql)) 
                     {
-                        echo "<br>Age: " . $row["age"];
+                        echo "<br>Age: " . $row["nomComplet"];
                     }
                 }
             ?>
