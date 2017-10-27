@@ -165,7 +165,7 @@
                             VALUES ('$nom')";
                     
                     // Si un nouvel utilisateur est créé
-                    if ($connection->query($sql) === TRUE || $connection->query($sqlUserData) === TRUE)
+                    if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
                     {
                         echo "<br>" . "NOUVEL UTILISATEUR CRÉÉ";
                     }
