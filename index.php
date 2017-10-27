@@ -116,7 +116,7 @@
                     
                     if (empty($mdp) || empty($nom))
                     {
-                        //La boite de texte dit à l'utilisateur d'inscrire un nom d'utilisateur
+                        // La boite de texte dit à l'utilisateur d'inscrire un nom d'utilisateur
                     }
                     else
                     {
@@ -127,7 +127,7 @@
                         
                         if($nombreRangées > 0)
                         {
-                            //Si l'utilisateur existe
+                            // Si l'utilisateur existe
                             vérifierLogin($connection, $nom, $hashedmdp);
                         } 
                         else 
