@@ -92,20 +92,20 @@
                     echo "Erreur de création de table de données: " . mysqli_error($connection);
                 }
                 
-                /*// Créer une table de données si elle n'existe pas déjà
-                $createTable = "CREATE TABLE IF NOT EXISTS userdata"
+                // Créer une table de données si elle n'existe pas déjà
+                $createDataTable = "CREATE TABLE IF NOT EXISTS userdata"
                              . "("
-                             . "age INT() NOT NULL,"
+                             . "age INT UNSIGNED"
                              . ")";
         
-                if (mysqli_query($connection, $createTable))
+                if (mysqli_query($connection, $createDataTable))
                 {
-                    //echo "Une table de données fut créée ou existe déjà.";
+                    echo "userdata fut créée ou existe déjà.";
                 }
                 else
                 {
-                    echo "Erreur de création de table de données: " . mysqli_error($connection);
-                }*/
+                    echo "Erreur de création de userdata: " . mysqli_error($connection);
+                }
                 
                 // Fonction du bouton de connexion
                 if(isset($_GET['action']))
