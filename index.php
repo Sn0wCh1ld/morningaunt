@@ -85,11 +85,11 @@
         
                 if (mysqli_query($connection, $createTable))
                 {
-                    //echo "Une table de données fut créée ou existe déjà.";
+                    //echo "La table de données userTable fut créée ou existe déjà.";
                 }
                 else
                 {
-                    echo "Erreur de création de table de données: " . mysqli_error($connection);
+                    echo "Erreur de création de la table de données userTable: " . mysqli_error($connection);
                 }
                 
                 // Créer une seconde table de données si elle n'existe pas déjà
@@ -101,11 +101,11 @@
         
                 if (mysqli_query($connection, $createDataTable))
                 {
-                    //echo "La seconde table de données fut créée ou existe déjà.";
+                    //echo "La table de données userdata fut créée ou existe déjà.";
                 }
                 else
                 {
-                    echo "Erreur de création de userdata: " . mysqli_error($connection);
+                    echo "Erreur de création de la table de données userdata: " . mysqli_error($connection);
                 }
                 
                 // Fonction du bouton de connexion
