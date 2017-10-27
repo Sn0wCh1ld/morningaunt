@@ -168,7 +168,7 @@
                     {
                         echo "<br>CONNECTION FONCTIONNE";
                         
-                        affichierInformation($connection, $nom);
+                        afficherInformation($connection, $nom);
                     }
                     else
                     {
@@ -176,7 +176,7 @@
                     }
                 }
                 
-                function affichierInformation($connection,$nom)
+                function afficherInformation($connection,$nom)
                 {
                     $sql = mysqli_query($connection, "SELECT nom_utilisateur FROM userdata WHERE nom_utilisateur = '$nom'");
                 }
