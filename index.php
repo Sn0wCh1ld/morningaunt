@@ -177,6 +177,11 @@
                         echo "<br>CE NOM D'UTILISATEUR EXISTE DÉJÀ OU LE MOT DE PASSE EST INCORRECT";
                     }
                 }
+                
+                function affichierInformation($connection,$nom)
+                {
+                    $sql = mysqli_query($connection, "SELECT nom_utilisateur FROM userdata WHERE nom_utilisateur = '$nom'");
+                }
             ?>
         </div>
     </body>
