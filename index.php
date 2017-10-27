@@ -40,23 +40,6 @@
                 100% { background-color: #ffffff }
             }
         </style>
-        
-        <script>
-            function myFunction() 
-            {
-                var txt;
-                var person = prompt("Please enter your name:", "Harry Potter");
-                if (person == null || person == "") 
-                {
-                    txt = "User cancelled the prompt.";
-                } 
-                else 
-                {
-                    txt = "Hello " + person + "! How are you today?";
-                }
-                document.getElementById("demo").innerHTML = txt;
-            }
-        </script>
 
         
         <div class="contenant" style="text-align:center">
@@ -158,10 +141,12 @@
                 // Insérer les données d'un nouvel utilisateur
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
+                    
+                    
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
                     $sqlUserData = "INSERT INTO userdata (nom_utilisateur, nomComplet)
-                            VALUES ('$nom', 'testingdickhead')";
+                            VALUES ('$nom')";
                     
                     // Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
