@@ -97,7 +97,8 @@
                 // Créer une seconde table de données si elle n'existe pas déjà
                 $createDataTable = "CREATE TABLE IF NOT EXISTS userdata
                             (nom_utilisateur VARCHAR(30) NOT NULL,
-                            nomComplet VARCHAR(256) NOT NULL)";
+                            nomComplet VARCHAR(256) NOT NULL,
+                            age INT UNSIGNED)";
         
                 if (mysqli_query($connection, $createDataTable))
                 {
@@ -141,13 +142,13 @@
                 // Insérer les données d'un nouvel utilisateur
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
-                    $nomComplet = demanderInformation("SVP insérer votre nom d'utilisateur.");
-                    $age = demanderInformation("SVP insérer votre age.");
+                    $nomComplet = demanderInformation("SVP insérer votre nom complet.", "Nom");
+                    $age = demanderInformation("SVP insérer votre age.", "Age");
                     
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
-                    $sqlUserData = "INSERT INTO userdata (nom_utilisateur, nomComplet)
-                            VALUES ('$nom')";
+                    $sqlUserData = "INSERT INTO userdata (nom_utilisateur, nomComplet, age)
+                            VALUES ('$nom', '$nomComplet')";
                     
                     // Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
@@ -194,11 +195,11 @@
                 }
                 
                 //prompt function
-                function demanderInformation($prompt_msg)
+                function demanderInformation($prompt_msg, $placeholder)
                 {
-                    echo("<script type='text/javascript'> var answer = prompt('".$prompt_msg."'); </script>");
+                    echo("<script type='text/javascript'> var reponse = prompt('".$prompt_msg."', '".$placeholder."'); </script>");
 
-                    $reponse = "<script type='text/javascript'> document.write(answer); </script>";
+                    $reponse = "<script type='text/javascript'>document.write(reponse); </script>";
                     return($reponse);
                 }
             ?>
