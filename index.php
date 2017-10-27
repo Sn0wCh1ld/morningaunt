@@ -86,26 +86,27 @@
         
                 if (mysqli_query($connection, $createTable))
                 {
-                    //echo "Une table de données fut créée ou existe déjà.";
+                    //echo "La table de données userTable fut créée ou existe déjà.";
                 }
                 else
                 {
-                    echo "Erreur de création de table de données: " . mysqli_error($connection);
+                    echo "Erreur de création de la table de données userTable: " . mysqli_error($connection);
                 }
                 
-                // Créer une table de données si elle n'existe pas déjà
+                // Créer une seconde table de données si elle n'existe pas déjà
                 $createDataTable = "CREATE TABLE IF NOT EXISTS userdata"
                              . "("
+                             . "nom_utilisateur VARCHAR(30) NOT NULL,"
                              . "age INT UNSIGNED"
                              . ")";
         
                 if (mysqli_query($connection, $createDataTable))
                 {
-                    echo "userdata fut créée ou existe déjà.";
+                    //echo "La table de données userdata fut créée ou existe déjà.";
                 }
                 else
                 {
-                    echo "Erreur de création de userdata: " . mysqli_error($connection);
+                    echo "Erreur de création de la table de données userdata: " . mysqli_error($connection);
                 }
                 
                 // Fonction du bouton de connexion
@@ -116,7 +117,7 @@
                     
                     if (empty($mdp) || empty($nom))
                     {
-                        //La boite de texte dit à l'utilisateur d'inscrire un nom d'utilisateur
+                        // La boite de texte dit à l'utilisateur d'inscrire un nom d'utilisateur
                     }
                     else
                     {
@@ -127,7 +128,7 @@
                         
                         if($nombreRangées > 0)
                         {
-                            //Si l'utilisateur existe
+                            // Si l'utilisateur existe
                             vérifierLogin($connection, $nom, $hashedmdp);
                         } 
                         else 
@@ -161,9 +162,11 @@
                 {
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
+                    $sqlUserData = "INSERT INTO userdata (nom_utilisateur)
+                            VALUES ('$nom')";
                     
                     // Si un nouvel utilisateur est créé
-                    if ($connection->query($sql) === TRUE)
+                    if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
                     {
                         echo "<br>" . "NOUVEL UTILISATEUR CRÉÉ";
                     }
