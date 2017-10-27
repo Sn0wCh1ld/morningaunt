@@ -178,6 +178,7 @@
                     }
                 }
                 
+                // Afficher le nom complet de l'utilisateur
                 function afficherInformation($connection, $nom)
                 {
                     $sql = mysqli_query($connection, "SELECT * FROM userdata WHERE nom_utilisateur = '$nom'");
