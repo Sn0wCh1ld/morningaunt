@@ -184,11 +184,7 @@
                     
                     while($row = mysqli_fetch_assoc($sql)) 
                     {
-<<<<<<< HEAD
-                        echo "Age: " . $row["age"];
-=======
-                    echo "<br>Age: " . $row["age"];
->>>>>>> b5bffccd246d46880345687400d338a5e2c8b7b0
+                        echo "<br>Age: " . $row["age"];
                     }
                 }
             ?>
