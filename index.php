@@ -138,24 +138,6 @@
                     }
                 }
                 
-                // Vérifier l'information de l'utilisateur
-                function vérifierLogin($connection, $nom, $hashedmdp)
-                {
-                    $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  mot_de_passe = '$hashedmdp'");
-                
-                    $nombreRangées = mysqli_num_rows($resultat);
-                    
-                    // Si le mot de passe correspond au nom d'utilisateur
-                    if($nombreRangées > 0)
-                    {
-                        echo "<br>CONNECTION FONCTIONNE";
-                    }
-                    else
-                    {
-                        echo "<br>CE NOM D'UTILISATEUR EXISTE DÉJÀ OU LE MOT DE PASSE EST INCORRECT";
-                    }
-                }
-                
                 // Insérer les données d'un nouvel utilisateur
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
@@ -172,6 +154,26 @@
                     else
                     {
                         echo "<br>" . "ERREUR: " . $connection->error;
+                    }
+                    
+                    vérifierLogin($connection, $nom, $hashedmdp);
+                }
+                
+                // Vérifier l'information de l'utilisateur
+                function vérifierLogin($connection, $nom, $hashedmdp)
+                {
+                    $resultat = mysqli_query($connection, "SELECT nom_utilisateur, mot_de_passe FROM usertable WHERE nom_utilisateur = '$nom' AND  mot_de_passe = '$hashedmdp'");
+                
+                    $nombreRangées = mysqli_num_rows($resultat);
+                    
+                    // Si le mot de passe correspond au nom d'utilisateur
+                    if($nombreRangées > 0)
+                    {
+                        echo "<br>CONNECTION FONCTIONNE";
+                    }
+                    else
+                    {
+                        echo "<br>CE NOM D'UTILISATEUR EXISTE DÉJÀ OU LE MOT DE PASSE EST INCORRECT";
                     }
                 }
             ?>
