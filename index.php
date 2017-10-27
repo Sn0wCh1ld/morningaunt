@@ -10,7 +10,8 @@
             {
                 font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
             }
-            div 
+            
+            .contenant 
             {
                 height: 200px;
                 width: 400px;
@@ -27,7 +28,8 @@
                 background-image: url("http://rs529.pbsrc.com/albums/dd337/shan2802/SilverStar.gif?w=280&h=210&fit=crop");
                 background-repeat: repeat-x;
                 height: 100%;
-                animation: background 5s cubic-bezier(1,0,0,1) infinite; 
+                animation: background 5s cubic-bezier(1,0,0,1) infinite;
+                
             }
             @keyframes background 
             {
@@ -178,13 +180,16 @@
                 
                 function afficherInformation($connection, $nom)
                 {
-                    $sql = mysqli_query($connection, "SELECT nom_utilisateur FROM userdata WHERE nom_utilisateur = '$nom'");
+                    $sql = mysqli_query($connection, "SELECT * FROM userdata WHERE nom_utilisateur = '$nom'");
                     
                     while($row = mysqli_fetch_assoc($sql)) 
                     {
+<<<<<<< HEAD
                         echo "Age: " . $row["age"];
+=======
+                    echo "<br>Age: " . $row["age"];
+>>>>>>> b5bffccd246d46880345687400d338a5e2c8b7b0
                     }
-                    
                 }
             ?>
         </div>
