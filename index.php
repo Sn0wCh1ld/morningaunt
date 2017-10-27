@@ -179,6 +179,11 @@
                 function afficherInformation($connection,$nom)
                 {
                     $sql = mysqli_query($connection, "SELECT nom_utilisateur FROM userdata WHERE nom_utilisateur = '$nom'");
+                    
+                    while($row = mysqli_fetch_assoc($sql)) {
+                    echo "Age: " . $row["age"];
+                    }
+                    
                 }
             ?>
         </div>
