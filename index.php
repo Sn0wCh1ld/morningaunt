@@ -185,7 +185,7 @@
                     
                     while($row = mysqli_fetch_assoc($sql)) 
                     {
-                        echo "<br>Age: " . $row["nomComplet"];
+                        echo "<br>Nom: " . $row["nomComplet"];
                     }
                 }
             ?>
