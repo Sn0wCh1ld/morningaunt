@@ -100,7 +100,7 @@
         
                 if (mysqli_query($connection, $createDataTable))
                 {
-                    echo "userdata fut créée ou existe déjà.";
+                    //echo "userdata fut créée ou existe déjà.";
                 }
                 else
                 {
