@@ -182,10 +182,10 @@
                 {
                     $sql = mysqli_query($connection, "SELECT * FROM userdata WHERE nom_utilisateur = '$nom'");
                     
-                    while($row = mysqli_fetch_assoc($sql)) {
+                    while($row = mysqli_fetch_assoc($sql)) 
+                    {
                     echo "<br>Age: " . $row["age"];
                     }
-                    
                 }
             ?>
         </div>
