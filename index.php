@@ -141,7 +141,8 @@
                 // Insérer les données d'un nouvel utilisateur
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
-                    
+                    $nomComplet = demanderInformation("SVP insérer votre nom d'utilisateur.");
+                    $age = demanderInformation("SVP insérer votre age.");
                     
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
@@ -190,6 +191,15 @@
                     {
                         echo "<br>Nom: " . $row["nomComplet"];
                     }
+                }
+                
+                //prompt function
+                function demanderInformation($prompt_msg)
+                {
+                    echo("<script type='text/javascript'> var answer = prompt('".$prompt_msg."'); </script>");
+
+                    $reponse = "<script type='text/javascript'> document.write(answer); </script>";
+                    return($reponse);
                 }
             ?>
         </div>
