@@ -77,12 +77,10 @@
                 }
                 
                 // Créer une table de données si elle n'existe pas déjà
-                $createTable = "CREATE TABLE IF NOT EXISTS userTable"
-                             . "("
-                             . "id INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                             . "nom_utilisateur VARCHAR(30) NOT NULL,"
-                             . "mot_de_passe VARCHAR(1024) NOT NULL"
-                             . ")";
+                $createTable = "CREATE TABLE IF NOT EXISTS userTable
+                            (id INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                            nom_utilisateur VARCHAR(30) NOT NULL,
+                            mot_de_passe VARCHAR(1024) NOT NULL)";
         
                 if (mysqli_query($connection, $createTable))
                 {
@@ -94,11 +92,9 @@
                 }
                 
                 // Créer une seconde table de données si elle n'existe pas déjà
-                $createDataTable = "CREATE TABLE IF NOT EXISTS userdata"
-                             . "("
-                             . "nom_utilisateur VARCHAR(30) NOT NULL,"
-                             . "age INT UNSIGNED"
-                             . ")";
+                $createDataTable = "CREATE TABLE IF NOT EXISTS userdata
+                            (nom_utilisateur VARCHAR(30) NOT NULL,
+                            age INT UNSIGNED)";
         
                 if (mysqli_query($connection, $createDataTable))
                 {
@@ -150,11 +146,11 @@
                     // Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
                     {
-                        echo "<br>" . "NOUVEL UTILISATEUR CRÉÉ";
+                        echo "<br>NOUVEL UTILISATEUR CRÉÉ";
                     }
                     else
                     {
-                        echo "<br>" . "ERREUR: " . $connection->error;
+                        echo "<br>ERREUR: " . $connection->error;
                     }
                     
                     vérifierLogin($connection, $nom, $hashedmdp);
