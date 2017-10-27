@@ -171,6 +171,8 @@
                     if($nombreRangées > 0)
                     {
                         echo "<br>CONNECTION FONCTIONNE";
+                        
+                        affichierInformation($connection, $nom);
                     }
                     else
                     {
