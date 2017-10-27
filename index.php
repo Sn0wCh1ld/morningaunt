@@ -95,6 +95,7 @@
                 // Créer une table de données si elle n'existe pas déjà
                 $createDataTable = "CREATE TABLE IF NOT EXISTS userdata"
                              . "("
+                             . "nom_utilisateur VARCHAR(30) NOT NULL,"
                              . "age INT UNSIGNED"
                              . ")";
         
