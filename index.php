@@ -143,12 +143,13 @@
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
                     $nomComplet = demanderInformation("SVP insérer votre nom complet.", "Nom");
-                    $age = demanderInformation("SVP insérer votre age.", "Age");
+                    //$age = demanderInformation("SVP insérer votre age.", "Age");
+                    $age = 17;
                     
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
                     $sqlUserData = "INSERT INTO userdata (nom_utilisateur, nomComplet, age)
-                            VALUES ('$nom', '$nomComplet')";
+                            VALUES ('".$nom."', '".$nomComplet."', '".$age."')";
                     
                     // Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
@@ -157,6 +158,7 @@
                     }
                     else
                     {
+                        echo $nomComplet;
                         echo "<br>ERREUR: " . $connection->error;
                     }
                     
@@ -197,9 +199,9 @@
                 //prompt function
                 function demanderInformation($prompt_msg, $placeholder)
                 {
-                    echo("<script type='text/javascript'> var reponse = prompt('".$prompt_msg."', '".$placeholder."'); </script>");
+                    echo("<script type='text/javascript'>var reponse = prompt('".$prompt_msg."', '".$placeholder."');</script>");
 
-                    $reponse = "<script type='text/javascript'>document.write(reponse); </script>";
+                    $reponse = "<script type='text/javascript'>document.write(reponse);</script>";
                     return($reponse);
                 }
             ?>
