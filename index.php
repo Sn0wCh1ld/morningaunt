@@ -160,10 +160,7 @@
                     }
                     else
                     {
-<<<<<<< HEAD
                         echo "<br>" . $nomComplet;
-=======
->>>>>>> dc39e0cd0042878d93ae1133bc78e9f0a1c440b1
                         echo "<br>ERREUR: " . $connection->error;
                     }
                     
