@@ -40,18 +40,38 @@
                 100% { background-color: #ffffff }
             }
         </style>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        
+        <script>
+            $('.login').click(
+                function()
+                {
+                // Prompt pour l'age
+                var reponse = prompt("SVP entrer votre âge:");
 
+                // If the username was entered
+                if (reponse != null) 
+                {
+                    // Post à index.php
+                    $.post("index.php", {name: reponse };
+                }   
+});
+</script>
         
         <div class="contenant" style="text-align:center">
             <h1>BLS</h1>
             <form method="post"  action="?action">
                 <label><b>Nom d'utilisateur: </b></label>
                 <input type="text" placeholder="Nom d'utilisateur" name="nom" required><br><br>
+                
+                <label><b>Age: </b></label>
+                <input type="text" placeholder="Age" name="age"><br><br>
 
                 <label><b>Mot de passe: </b></label>
                 <input type="password" placeholder="Mot de passe" name="mdp" required><br><br>
                 <input type="hidden" name="act" value="run">
-                <button type="submit" name="login">Se Connecter</button>
+                <button type="submit" name="login" class="login">Se Connecter</button>
             </form>
         
             <?php
@@ -97,7 +117,6 @@
                 // Créer une seconde table de données si elle n'existe pas déjà
                 $createDataTable = "CREATE TABLE IF NOT EXISTS userdata
                             (nom_utilisateur VARCHAR(30) NOT NULL,
-                            nomComplet VARCHAR(256) NOT NULL,
                             age INT UNSIGNED)";
         
                 if (mysqli_query($connection, $createDataTable))
@@ -114,6 +133,7 @@
                 {
                     $nom = $_POST['nom'];
                     $mdp = $_POST['mdp'];
+                    $age = $_POST['age'];
                     
                     if (empty($mdp) || empty($nom))
                     {
@@ -134,33 +154,40 @@
                         else 
                         {
                             // Si l'utilisateur n'existe pas
-                            nouvelUtilisateur($connection, $nom, $hashedmdp);
+                            nouvelUtilisateur($connection, $nom, $hashedmdp, $age);
                         }
                     }
                 }
                 
                 // Insérer les données d'un nouvel utilisateur
-                function nouvelUtilisateur($connection, $nom, $hashedmdp)
-                {
-                    $nomComplet = demanderInformation("SVP insérer votre nom complet.", "Nom");
-                    $nomComplet = "bob";
-                    $age = demanderInformation("SVP insérer votre age.", "Age");
-                    $age = 17;
-                    
+                function nouvelUtilisateur($connection, $nom, $hashedmdp, $age)
+                {                   
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
                     
-                    $sqlUserData = "INSERT INTO userdata (nom_utilisateur, nomComplet, age)
-                            VALUES ('$nom', '$nomComplet', '$age')";
+                    if (!($age == NULL))
+                    {
+                        $sqlUserData = "INSERT INTO userdata (nom_utilisateur, age)
+                            VALUES ('$nom', '$age')";
+                        
+                        if ($connection->query($sqlUserData) === TRUE)
+                        {
+                            echo "<br>NOUVELLES DONNÉES SAUVEGARDÉS";
+                        }
+                        else
+                        {
+                            echo "<br>ERREUR: " . $connection->error;
+                        }
+                    }
+                    
                     
                     // Si un nouvel utilisateur est créé
-                    if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
+                    if ($connection->query($sql) === TRUE)
                     {
                         echo "<br>NOUVEL INFORMATION CRÉÉ";
                     }
                     else
                     {
-                        echo "<br>" . $nomComplet;
                         echo "<br>ERREUR: " . $connection->error;
                     }
                     
@@ -194,17 +221,8 @@
                     
                     while($row = mysqli_fetch_assoc($sql)) 
                     {
-                        echo "<br>Nom: " . $row["nomComplet"];
+                        echo "<br>Age: " . (float)$row["age"];
                     }
-                }
-                
-                //prompt function
-                function demanderInformation($prompt_msg, $placeholder)
-                {
-                    echo("<script type='text/javascript'>var reponse = prompt('".$prompt_msg."', '".$placeholder."');</script>");
-
-                    $reponse = "<script type='text/javascript'>document.write(reponse);</script>";
-                    return($reponse);
                 }
             ?>
         </div>
