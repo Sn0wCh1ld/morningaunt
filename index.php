@@ -143,7 +143,8 @@
                 function nouvelUtilisateur($connection, $nom, $hashedmdp)
                 {
                     $nomComplet = demanderInformation("SVP insérer votre nom complet.", "Nom");
-                    //$age = demanderInformation("SVP insérer votre age.", "Age");
+                    $nomComplet = "bob";
+                    $age = demanderInformation("SVP insérer votre age.", "Age");
                     $age = 17;
                     
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
@@ -164,11 +165,11 @@
                     
                     if ($connection->query($sql) === TRUE)
                     {
-                        echo "<br>NOUVEL UTILISATEUR CRÉÉ";
+                        echo "<br>NOUVEL INFORMATION CRÉÉ";
                     }
                     else
                     {
-                        echo $nomComplet;
+                        echo "<br>" . $nomComplet;
                         echo "<br>ERREUR: " . $connection->error;
                     }
                     
