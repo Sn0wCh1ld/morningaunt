@@ -149,26 +149,16 @@
                     $sql = "INSERT INTO userTable (nom_utilisateur, mot_de_passe)
                             VALUES ('$nom', '$hashedmdp')";
                     
-                    // Si un nouvel utilisateur est créé
-                    if ($connection->query($sql) === TRUE)
-                    {
-                        echo "<br>NOUVEL UTILISATEUR CRÉÉ";
-                    }
-                    else
-                    {
-                        echo "<br>ERREUR: " . $connection->error;
-                    }
-                    
-                    $sql = "INSERT INTO userdata (nom_utilisateur, nomComplet, age)
+                    $sqlUserData = "INSERT INTO userdata (nom_utilisateur, nomComplet, age)
                             VALUES ('$nom', '$nomComplet', '$age')";
                     
-                    if ($connection->query($sql) === TRUE)
+                    // Si un nouvel utilisateur est créé
+                    if ($connection->query($sql) === TRUE && $connection->query($sqlUserData) === TRUE)
                     {
                         echo "<br>NOUVEL UTILISATEUR CRÉÉ";
                     }
                     else
                     {
-                        echo $nomComplet;
                         echo "<br>ERREUR: " . $connection->error;
                     }
                     
