@@ -65,12 +65,16 @@
                 <label><b>Nom d'utilisateur: </b></label>
                 <input type="text" placeholder="Nom d'utilisateur" name="nom" required><br><br>
                 
-                <label><b>Age: </b></label>
-                <input type="text" placeholder="Age" name="age"><br><br>
+                
 
                 <label><b>Mot de passe: </b></label>
                 <input type="password" placeholder="Mot de passe" name="mdp" required><br><br>
+                
                 <input type="hidden" name="act" value="run">
+                
+                <label><b>Age (première fois): </b></label>
+                <input type="text" placeholder="Age" name="age"><br><br>
+                
                 <button type="submit" name="login" class="login">Se Connecter</button>
             </form>
         
