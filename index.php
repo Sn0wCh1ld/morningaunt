@@ -73,7 +73,7 @@
                 <input type="hidden" name="act" value="run">
                 
                 <label><b>Age (première fois): </b></label>
-                <input type="text" placeholder="Age" name="age"><br><br>
+                <input type="number" placeholder="Age" name="age"><br><br>
                 
                 <button type="submit" name="login" class="login">Se Connecter</button>
             </form>
