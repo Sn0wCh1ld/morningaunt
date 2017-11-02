@@ -184,7 +184,7 @@
                     // Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE)
                     {
-                        echo "<br>NOUVELLE INFORMATION CRÉÉE";
+                        //echo "<br>NOUVELLE INFORMATION CRÉÉE";
                     }
                     else
                     {
