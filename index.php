@@ -134,7 +134,7 @@
                         
                         if($nombreRangées > 0)
                         {
-                            // Si l'utilisateur existe
+                            // Si l'utilisateur existe déjà
                             vérifierLogin($connection, $nom, $hashedmdp);
                         } 
                         else 
@@ -165,7 +165,6 @@
                             echo "<br>ERREUR: " . $connection->error;
                         }
                     }
-                    
                     
                     // Si un nouvel utilisateur est créé
                     if ($connection->query($sql) === TRUE)
@@ -205,9 +204,9 @@
                 {
                     $sql = mysqli_query($connection, "SELECT * FROM userdata WHERE nom_utilisateur = '$nom'");
                     
-                    while($row = mysqli_fetch_assoc($sql)) 
+                    while($rangée = mysqli_fetch_assoc($sql)) 
                     {
-                        echo "<br>Age: " . (float)$row["age"];
+                        echo "<br>Age: " . (float)$rangée["age"];
                     }
                 }
             ?>
