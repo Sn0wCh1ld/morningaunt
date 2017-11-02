@@ -41,24 +41,6 @@
             }
         </style>
         
-        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-        
-        <script>
-            $('.login').click(
-                function()
-                {
-                // Prompt pour l'age
-                var reponse = prompt("SVP entrer votre âge:");
-
-                // If the username was entered
-                if (reponse != null) 
-                {
-                    // Post à index.php
-                    $.post("index.php", {name: reponse };
-                }   
-});
-</script>
-        
         <div class="contenant" style="text-align:center">
             <h1>BLS</h1>
             <form method="post"  action="?action">
